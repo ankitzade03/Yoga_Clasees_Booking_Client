@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { YogaContext } from '../../Context/ContextApi';
 
-export const ScrollerWindow = () => {
+export const Scroller= () => {
   const { token } = useContext(YogaContext);
 
   return (

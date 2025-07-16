@@ -1,14 +1,15 @@
 import React from 'react'
-import { ScrollerWindow } from '../Component/HomePageCompo/scrollerWindow'
+
 import { FeatureClasses } from '../Component/HomePageCompo/FeatureClasses'
 import { WeeklySchedule } from '../Component/HomePageCompo/WeeklySchedule'
 import { Instructor } from '../Component/HomePageCompo/Instructor'
+import { Scroller } from '../Component/HomePageCompo/Scroller'
 
 
 export const Home = () => {
   return (
     <>
-      <ScrollerWindow></ScrollerWindow>
+      <Scroller></Scroller>
       <FeatureClasses></FeatureClasses>
       <WeeklySchedule></WeeklySchedule>
       <Instructor></Instructor>
