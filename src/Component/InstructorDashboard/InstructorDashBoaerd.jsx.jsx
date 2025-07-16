@@ -1,7 +1,6 @@
 
 import React, { useContext, useState } from 'react';
 import { HomeSection } from './HomeSection';
-// import { VideosSection } from './VideoSection';
 
 import { YogaContext } from '../../Context/ContextApi';
 import { NewClass } from './NewClass';

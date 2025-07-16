@@ -10,6 +10,10 @@ import { TrainerMainCompo } from './Component/TrainerMainCompo';
 import { ProtectedRoute } from './Pages/ProtectedRoute';
 import { Header, PublicHeader } from './Pages/Header';
 import { InstructorHeader } from './Pages/InstructorHeader';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
 
 export const App = () => {
   const { token, role, loading } = useContext(YogaContext);
@@ -25,6 +29,7 @@ export const App = () => {
 
   return (
     <>
+    <ToastContainer></ToastContainer>
       {renderHeader()}
       <Routes>
         {/* Public Routes */}

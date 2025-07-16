@@ -4,7 +4,7 @@ import { YogaContext } from '../Context/ContextApi';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import 'react-toastify/dist/ReactToastify.css';
+
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -45,7 +45,6 @@ export const Login = () => {
       console.log('Response:', data);
 
       if (data.token && data.role) {
-        toast.success('Login Successful!');
 
         // Set cookies for 7 days
         Cookies.set('token', data.token, { expires: 7 });
@@ -61,12 +60,14 @@ export const Login = () => {
         } else if (data.role === 'instructor') {
           navigate('/instructor/dashboard');
         }
+        toast.success('Login Successful!');
+
       } else {
-        toast.error(data.message || 'Something went wrong!');
+        toast.error('Something went wrong!');
       }
     } catch (error) {
       toast.error('Network error!');
-      console.error('Login Error:', error);
+      console.log('Login Error:', error);
     }
   };
 

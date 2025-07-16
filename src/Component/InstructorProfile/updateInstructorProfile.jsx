@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { YogaContext } from '../../Context/ContextApi';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { toast } from 'react-toastify';
 const UpdateInstructorProfile = () => {
   const navigate = useNavigate();
   const { token,setToken,setRole} = useContext(YogaContext);
@@ -91,11 +92,11 @@ const UpdateInstructorProfile = () => {
       const result = await res.json();
       if (!res.ok) throw new Error(result.message || 'Update failed');
 
-      alert('✅ Profile updated successfully!');
+      toast.success('✅ Profile updated successfully!');
       navigate('/dashboard');
     } catch (err) {
-      console.error('Update error:', err);
-      alert('❌ Failed to update profile.');
+      console.log('Update error:', err);
+      toast.error('Failed to update profile.');
     }
   };
 

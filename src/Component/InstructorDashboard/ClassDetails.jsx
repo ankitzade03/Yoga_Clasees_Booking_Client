@@ -2,6 +2,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { YogaContext } from '../../Context/ContextApi';
+import { toast } from 'react-toastify';
 
 const ClassDetails = () => {
   const { id } = useParams();
@@ -46,8 +47,11 @@ const ClassDetails = () => {
       } else {
         alert(data.error);
       }
+       toast.success("Join Class Successfully!!")
+
     } catch (error) {
       console.error("Join failed", error);
+      toast.error("Join Failed!!")
     }
   };
 
