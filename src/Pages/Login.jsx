@@ -4,6 +4,7 @@ import { YogaContext } from '../Context/ContextApi';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { api } from '../App';
 
 
 export const Login = () => {
@@ -31,8 +32,8 @@ export const Login = () => {
 
     const url =
       authMode === 'Signup'
-        ? 'http://localhost:8000/auth/register'
-        : 'http://localhost:8000/auth/login';
+        ? api+`/auth/register`
+        : api+`/auth/login`;
 
     try {
       const res = await fetch(url, {

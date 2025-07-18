@@ -2,6 +2,7 @@
 
 import React, { createContext, useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
+import { api } from '../App';
 
 export const YogaContext = createContext();
 
@@ -52,7 +53,7 @@ export const YogaContextProvider = ({ children }) => {
 
     const fetchProfile = async () => {
       try {
-        const res = await fetch("http://localhost:8000/user/userprofile/me", {
+        const res = await fetch(api+`/user/userprofile/me`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -87,7 +88,7 @@ export const YogaContextProvider = ({ children }) => {
 
     const fetchInstructor = async () => {
       try {
-        const res = await fetch('http://localhost:8000/instructor/instructor_profile', {
+        const res = await fetch(api+`/instructor/instructor_profile`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

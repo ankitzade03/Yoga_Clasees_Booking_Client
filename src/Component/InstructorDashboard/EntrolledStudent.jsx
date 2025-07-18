@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState, useContext } from 'react';
 import { YogaContext } from '../../Context/ContextApi';
+import { api } from '../../App';
 
 export const EnrolledStudents = () => {
   const { token } = useContext(YogaContext);
@@ -16,7 +17,7 @@ export const EnrolledStudents = () => {
 
   const fetchEnrolledStudents = async () => {
     try {
-      const res = await fetch(`http://localhost:8000/instructor/enrolled-students`, {
+      const res = await fetch(api+`/instructor/enrolled-students`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -38,7 +39,7 @@ export const EnrolledStudents = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:8000/instructor/enrolled-students/${classId}/${studentId}`,
+        api+`/instructor/enrolled-students/${classId}/${studentId}`,
         {
           method: 'DELETE',
           headers: { Authorization: `Bearer ${token}` },
@@ -63,7 +64,7 @@ export const EnrolledStudents = () => {
 
   const handleEditSave = async (studentId) => {
     try {
-      const res = await fetch(`http://localhost:8000/instructor/enrolled-students/${studentId}`, {
+      const res = await fetch(api+`/instructor/enrolled-students/${studentId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

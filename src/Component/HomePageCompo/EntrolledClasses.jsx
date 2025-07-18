@@ -1,6 +1,7 @@
 
 import React, { useEffect, useContext, useState } from 'react';
 import { YogaContext } from '../../Context/ContextApi';
+import { api } from '../../App';
 
 export const EnrolledClasses = () => {
   const { token } = useContext(YogaContext);
@@ -9,7 +10,7 @@ export const EnrolledClasses = () => {
   useEffect(() => {
     const fetchEnrolledClasses = async () => {
       try {
-        const res = await fetch('http://localhost:8000/user/joined-classes', {
+        const res = await fetch(api+`/user/joined-classes`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

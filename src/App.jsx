@@ -2,7 +2,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { useContext } from 'react';
 import { YogaContext } from './Context/ContextApi';
-
 import { Home } from './Pages/Home';
 import { Login } from './Pages/Login';
 import { UserMainCompo } from './Component/UserMainCompo';
@@ -12,6 +11,7 @@ import { Header, PublicHeader } from './Pages/Header';
 import { InstructorHeader } from './Pages/InstructorHeader';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+export const api = import.meta.env.VITE_BACKEND_URL;
 
 
 

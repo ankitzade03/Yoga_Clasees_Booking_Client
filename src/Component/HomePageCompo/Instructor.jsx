@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { api } from '../../App';
 
 export const Instructor = () => {
   const [filteredInstructors, setFilteredInstructors] = useState([]);
@@ -10,7 +11,7 @@ export const Instructor = () => {
   useEffect(() => {
     const fetchInstructors = async () => {
       try {
-        const res = await fetch('http://localhost:8000/user/instructors');
+        const res = await fetch(api+`/user/instructors`);
         const data = await res.json();
         setFilteredInstructors(data.instructors || []);
       } catch (error) {

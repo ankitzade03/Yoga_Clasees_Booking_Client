@@ -4,7 +4,6 @@ import { createRoot } from 'react-dom/client'
 import 'react-toastify/dist/ReactToastify.css';
 import './index.css'  //tailwind css
 
-
 import { BrowserRouter } from 'react-router-dom'
 import { YogaContextProvider } from './Context/ContextApi';
 import { App } from './App';

@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { api } from '../App';
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +23,7 @@ export const ContactForm = () => {
 
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:8000/contact/submit', {
+      const response = await fetch(api+`/contact/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

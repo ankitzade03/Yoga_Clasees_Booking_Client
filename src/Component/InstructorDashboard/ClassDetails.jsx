@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { YogaContext } from '../../Context/ContextApi';
 import { toast } from 'react-toastify';
+import { api } from '../../App';
 
 const ClassDetails = () => {
   const { id } = useParams();
@@ -18,7 +19,7 @@ const ClassDetails = () => {
   useEffect(() => {
     const fetchClass = async () => {
       try {
-        const res = await fetch(`http://localhost:8000/user/class/${id}`);
+        const res = await fetch(api+`/user/class/${id}`);
         const data = await res.json();
         setClassInfo(data);
         setInstructor(data.instructor);
@@ -32,7 +33,7 @@ const ClassDetails = () => {
 
   const handleJoinClass = async () => {
     try {
-      const res = await fetch(`http://localhost:8000/user/class/join/${id}`, {
+      const res = await fetch(api+`/user/class/join/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,7 +58,7 @@ const ClassDetails = () => {
 
   const handleReviewSubmit = async () => {
     try {
-      const res = await fetch(`http://localhost:8000/user/user-review`, {
+      const res = await fetch(api+`/user/user-review`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

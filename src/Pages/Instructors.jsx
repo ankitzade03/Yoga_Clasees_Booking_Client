@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { api } from "../App";
 
 export const AllInstructorsList = () => {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ export const AllInstructorsList = () => {
   useEffect(() => {
     const fetchInstructors = async () => {
       try {
-        const res = await fetch("http://localhost:8000/user/instructors");
+        const res = await fetch(api+`/user/instructors`);
         const data = await res.json();
         setInstructors(data.instructors || []);
       } catch (error) {

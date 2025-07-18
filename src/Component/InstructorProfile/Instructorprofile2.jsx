@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { api } from '../../App';
 
 export const InstructorProfile = () => {
   const { id } = useParams();
@@ -11,7 +12,7 @@ export const InstructorProfile = () => {
   useEffect(() => {
     const fetchInstructor = async () => {
       try {
-        const res = await fetch(`http://localhost:8000/user/instructor/${id}`);
+        const res = await fetch(api+`/user/instructor/${id}`);
         const data = await res.json();
         setInstructor(data.instructor);
       } catch (error) {

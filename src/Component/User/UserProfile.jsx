@@ -5,6 +5,7 @@ import React, { useState, useRef, useContext, useEffect } from 'react';
 import { YogaContext } from '../../Context/ContextApi';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie'; 
+import { api } from '../../App';
 export const UserProfile = () => {
   const navigate = useNavigate();
   const { token, setToken,setRole } = useContext(YogaContext); // assuming setToken available for logout
@@ -25,7 +26,7 @@ export const UserProfile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch("http://localhost:8000/user/userprofile/me", {
+        const res = await fetch(api+`/user/userprofile/me`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -72,7 +73,7 @@ export const UserProfile = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:8000/user/userprofile/update-profile", {
+      const res = await fetch(api+`/user/userprofile/update-profile`, {
         method: "PUT",
         headers: { Authorization: `Bearer ${token}` },
         body: formData,

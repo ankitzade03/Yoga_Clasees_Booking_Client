@@ -1,6 +1,7 @@
 
 import React, { useContext, useEffect, useState } from "react";
 import { YogaContext } from "../../Context/ContextApi";
+import { api } from "../../App";
 
 export const YogaClassesList = () => {
 
@@ -10,7 +11,7 @@ export const YogaClassesList = () => {
 
   const fetchMyClasses = async () => {
     try {
-      const res = await fetch("http://localhost:8000/instructor/instructors/my-classes", {
+      const res = await fetch(api+`/instructor/instructors/my-classes`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -28,7 +29,7 @@ export const YogaClassesList = () => {
   const handleDelete = async (classId) => {
     if (!window.confirm("Are you sure you want to delete this class?")) return;
     try {
-      await fetch(`http://localhost:8000/instructor/class/${classId}`, {
+      await fetch(api+`/instructor/class/${classId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

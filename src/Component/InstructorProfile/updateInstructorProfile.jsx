@@ -4,6 +4,7 @@ import { YogaContext } from '../../Context/ContextApi';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { toast } from 'react-toastify';
+import { api } from '../../App';
 const UpdateInstructorProfile = () => {
   const navigate = useNavigate();
   const { token,setToken,setRole} = useContext(YogaContext);
@@ -28,7 +29,7 @@ const UpdateInstructorProfile = () => {
   useEffect(() => {
     const fetchInstructor = async () => {
       try {
-        const res = await fetch('http://localhost:8000/instructor/instructor_profile', {
+        const res = await fetch(api+`/instructor/instructor_profile`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -83,7 +84,7 @@ const UpdateInstructorProfile = () => {
     if (profileData.demoVideo) formData.append('video1', profileData.demoVideo);
 
     try {
-      const res = await fetch('http://localhost:8000/instructor/profile/update', {
+      const res = await fetch(api+`/instructor/profile/update`, {
         method: 'PUT',
         headers: { Authorization: `Bearer ${token}` },
         body: formData,

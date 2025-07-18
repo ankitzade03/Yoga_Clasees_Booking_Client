@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { api } from '../App';
 
 export const YogaAsanaSlider = () => {
   const [asanas, setAsanas] = useState([]);
@@ -10,7 +11,7 @@ export const YogaAsanaSlider = () => {
   useEffect(() => {
     const fetchAsanas = async () => {
       try {
-        const res = await fetch('http://localhost:8000/admin/all');
+        const res = await fetch(api+`/user/yogasan/all`);
         const data = await res.json();
         if (res.ok) setAsanas(data.data);
         else alert(data.message);

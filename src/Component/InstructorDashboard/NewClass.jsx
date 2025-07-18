@@ -1,6 +1,7 @@
 
 import React, { useContext, useState } from 'react';
 import { YogaContext } from '../../Context/ContextApi';
+import { api } from '../../App';
 
 export const NewClass = () => {
   const { token } = useContext(YogaContext);
@@ -27,7 +28,7 @@ export const NewClass = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:8000/instructor/create_class', {
+      const res = await fetch(api+`/instructor/create_class`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
